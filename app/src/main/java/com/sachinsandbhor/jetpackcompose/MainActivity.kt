@@ -21,7 +21,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             //ColoredBox()
-            Numbers()
+            //Numbers()
+            NumberColumn()
         }
     }
 }
@@ -64,9 +65,32 @@ fun Numbers() {
     }
 }
 
+@Composable
+fun NumberColumn() {
+    Column(
+        verticalArrangement = Arrangement.SpaceEvenly,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Text(text = "1", fontSize = 12.sp)
+        Text(text = "2", fontSize = 12.sp)
+        Text(text = "3", fontSize = 12.sp)
+        Text(text = "4", fontSize = 12.sp)
+        Text(text = "5", fontSize = 12.sp)
+        Text(text = "6", fontSize = 12.sp)
+        Text(text = "7", fontSize = 12.sp)
+        Text(text = "8", fontSize = 12.sp)
+        Text(text = "9", fontSize = 12.sp)
+        Text(text = "10", fontSize = 12.sp)
+
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     //ColoredBox()
-    Numbers()
+    //Numbers()
+    NumberColumn()
+
 }
