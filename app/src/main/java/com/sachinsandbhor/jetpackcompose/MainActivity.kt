@@ -3,6 +3,9 @@ package com.sachinsandbhor.jetpackcompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -19,7 +22,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Greeting()
+            //Greeting()
+            ClickableButton()
         }
     }
 }
@@ -34,7 +38,23 @@ fun Greeting() {
         fontWeight = FontWeight.ExtraBold,
         textAlign = TextAlign.Center
     )
+    ClickableButton()
 }
+
+@Composable
+fun ClickableButton() {
+    Button(
+        onClick = { },
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = Color.Cyan,
+            contentColor = Color.Blue
+        ),
+        shape = MaterialTheme.shapes.medium
+    ) {
+        Text(text = "Press me")
+    }
+}
+
 
 @Preview(
     showBackground = true,
@@ -44,6 +64,7 @@ fun Greeting() {
 @Composable
 fun DefaultPreview() {
     JetpackComposeTheme {
-        Greeting()
+        // Greeting()
+        ClickableButton()
     }
 }
