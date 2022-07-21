@@ -5,13 +5,16 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -45,11 +48,26 @@ fun ColoredBox() {
 }
 
 @Composable
+fun MyFloatingButton() {
+    Box {
+        Surface(
+            modifier = Modifier.size(32.dp),
+            color = Color.Green,
+            shape = CircleShape,
+            content = {})
+            Text(text = "+", modifier = Modifier.align(Alignment.Center))
+        }
+}
+
+
+@Composable
 fun Numbers() {
     Row(
-        horizontalArrangement = Arrangement.Start,
+        horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.Top,
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(12.dp)
     ) {
         Text(text = "1", fontSize = 12.sp)
         Text(text = "2", fontSize = 12.sp)
@@ -82,7 +100,8 @@ fun NumberColumn() {
         Text(text = "8", fontSize = 12.sp)
         Text(text = "9", fontSize = 12.sp)
         Text(text = "10", fontSize = 12.sp)
-
+        Numbers()
+        MyFloatingButton()
     }
 }
 
